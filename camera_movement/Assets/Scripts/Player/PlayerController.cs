@@ -19,12 +19,11 @@ public class PlayerController : MonoBehaviour
     private Vector3 distance = Vector3.zero;
     private Vector3 velocity;
 
-    private KeyManager _k;
+    private KeyManager _k = new KeyManager();
     private PlayerAnimations _animations;
 
     void Start()
 	{
-        _k = GameObject.FindObjectOfType<KeyManager>();
         _animations = GameObject.FindObjectOfType<PlayerAnimations>();
     }
 
@@ -94,6 +93,8 @@ public class PlayerController : MonoBehaviour
         else _animations.isSprint(false);
         if (Input.GetKeyDown(_k.walk.ToString()) && _animations.isWalking() == false) _animations.isWalk(true);
         else if (Input.GetKeyDown(_k.walk.ToString()) && _animations.isWalking() == true) _animations.isWalk(false);
+
+        if (Input.GetKey(_k.sprint.ToString()) && !(Input.GetKey(_k.forward.ToString()) || Input.GetKey(_k.backward.ToString()) || Input.GetKey(_k.left.ToString()) || Input.GetKey(_k.right.ToString()))) _animations.isSprint(false);
     }
 
 }

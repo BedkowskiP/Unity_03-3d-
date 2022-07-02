@@ -13,7 +13,7 @@ public class KeyManager : MonoBehaviour
     public string turn_left = "left";
     public string turn_right = "right";
 
-    public string walk = "left control";
+    public string walk = "left ctrl";
     public string sprint = "left shift";
 
     //skills and abilities keys
@@ -29,5 +29,9 @@ public class KeyManager : MonoBehaviour
     public string[] f = {
         "f1","f2","f3","f4","f5","f6","f7","f8","f9","f10","f11","f12"
     };
+
+    public KeyManager() {
+        
+    }
 
 }
